@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Back</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="save()">
+      <br>
+      <br>
+      <ion-item >
+        <ion-label fixed>Fajr</ion-label>
+        <ion-datetime
+          displayFormat="HH:mm"
+          pickerFormat="hh:mm A"
+          minuteValues="00,05,10,15,20,25,30,35,40,45,50,55"
+          [(ngModel)]="iqama.fajr"
+          name="fajr">
+        </ion-datetime>
+      </ion-item>
+      <br>
+      <br>
+      <ion-item>
+        <ion-label fixed>Isha</ion-label>
+        <ion-datetime
+          displayFormat="HH:mm"
+          pickerFormat="hh:mm A"
+          minuteValues="00,05,10,15,20,25,30,35,40,45,50,55"
+          [(ngModel)]="iqama.isha"
+          name="isha">
+        </ion-datetime>
+      </ion-item>
+      <br>
+      <button ion-button round outline  block type="submit" >Save</button>
+    </form>
+</ion-content>
+

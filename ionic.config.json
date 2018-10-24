@@ -1,0 +1,8 @@
+{
+  "name": "dinosaur-wiki",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "pro_id": "e6d1b30b"
+}

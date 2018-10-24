@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <ion-row>
+          <ion-col text-center >
+              <img [src]="'assets/imgs/al_jazira_trans.png'" class="logo"/>
+            </ion-col>
+      </ion-row>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content center text-center>
+    <br/><br>
+    <div text-center class="title">
+        أوقات الصلاة
+    </div><br>
+    <ion-grid>
+
+        <a id='hidden-button' (click)="fun1()">
+        <ion-row >
+          <ion-col class="bold-text">
+            Fajr
+          </ion-col>
+          <ion-col>
+            {{prayTimeModel.fajr}}
+          </ion-col>
+          <ion-col class="bold-text">
+            {{iqama.fajr}}
+          </ion-col>
+        </ion-row>
+      </a><br/>
+      <a id='hidden-button' (click)="fun2()">
+          <ion-row >
+            <ion-col class="bold-text">
+              Sunrise
+            </ion-col>
+            <ion-col>
+              {{prayTimeModel.sunrise}}
+            </ion-col>
+            <ion-col>
+              -
+            </ion-col>
+          </ion-row>
+        </a><br/>
+        <a id='hidden-button' (click)="fun3()">
+            <ion-row >
+              <ion-col class="bold-text">
+                Duhr
+              </ion-col>
+              <ion-col>
+                {{prayTimeModel.dhuhr}}
+              </ion-col>
+              <ion-col>
+                -
+              </ion-col>
+            </ion-row>
+          </a><br/>
+          <a id='hidden-button' (click)="fun4()">
+              <ion-row >
+                <ion-col class="bold-text">
+                  Asr
+                </ion-col>
+                <ion-col>
+                  {{prayTimeModel.asr}}
+                </ion-col>
+                <ion-col>
+                  -
+                </ion-col>
+              </ion-row>
+            </a><br/>
+            <a id='hidden-button' (click)="fun5()">
+                <ion-row >
+                  <ion-col class="bold-text">
+                    Maghreb
+                  </ion-col>
+                  <ion-col>
+                    {{prayTimeModel.maghrib}}
+                  </ion-col>
+                  <ion-col>
+                    -
+                  </ion-col>
+                </ion-row>
+              </a><br/>
+              <a id='hidden-button' (click)="fun6()">
+                  <ion-row >
+                    <ion-col class="bold-text">
+                      Isha
+                    </ion-col>
+                    <ion-col>
+                      {{prayTimeModel.isha}}
+                    </ion-col>
+                    <ion-col class="bold-text">
+                        {{iqama.isha}}
+                    </ion-col>
+                  </ion-row>
+                </a>
+      </ion-grid>
+</ion-content>
+
