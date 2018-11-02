@@ -19,6 +19,7 @@ export class HomePage {
   private charlist:Array<string> = [];
   private dinosaurs:Array<any> = [] ;
   private iqama:any = {} ;
+  private isLoading:boolean;
 
   private combination:string = "***%%";
   private prayTimeModel:any ;
@@ -30,21 +31,24 @@ export class HomePage {
     this.char3 = "%" ;
     this.charlist = [];
 
+
+
   }
   ionViewWillEnter() {
     var self = this;
+    this.isLoading = true ;
+    this.dataAccess.socket.on('error',(error)=>{
+      this.reload() ;
+    })
     this.dataAccess.socket.on('iqamaTime', function(time){
-      self.dataAccess.setIqama(time) ;
-      self.iqama = self.dataAccess.getIqama();
+      self.iqama = time;
+      self.dataAccess.setIqama(time)
+      self.isLoading = false ;
     });
   }
 
 
-  goToDetail(dino){
-    this.navCtrl.push(DetailsPage, {
-      selectedDino: dino
-    });
-  }
+
 
   validateCombination(){
     if(this.charlist.length >=5){
@@ -52,11 +56,16 @@ export class HomePage {
       var end = this.charlist.length ;
       var comb  = this.charlist.slice(start,end).join("") ;
       if(comb === this.combination){
-        this.navCtrl.push(DetailsPage,{selectedDino:this.dinosaurs[0]})
+        this.navCtrl.push(DetailsPage,{iqama:this.iqama})
       }
     }
 
     if(this.charlist.length == 50) this.charlist = [] ;
+  }
+
+
+  reload(){
+    window.location.reload();
   }
 
   fun1(){

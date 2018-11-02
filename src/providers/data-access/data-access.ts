@@ -16,9 +16,12 @@ export class DataAccessProvider {
   constructor(public http: HttpClient, private storage:Storage) {
     var self = this;
     self.socket = io("https://my-node-socket.herokuapp.com/");
-    this.storage.get('iqama').then((val)=>{
-      self.iqama = val;
-     });
+
+    // self.socket = io("http://localhost:3000/");
+    // this.storage.get('iqama').then((val)=>{
+    //   self.iqama = val;
+    //   console.log("self.iqama", self.iqama)
+    //  });
 
   }
 

@@ -11,6 +11,7 @@
 </ion-header>
 
 <ion-content center text-center>
+
     <br/><br>
     <div text-center class="title">
         أوقات الصلاة
@@ -25,8 +26,11 @@
           <ion-col>
             {{prayTimeModel.fajr}}
           </ion-col>
-          <ion-col class="bold-text">
+          <ion-col class="bold-text" *ngIf="!isLoading">
             {{iqama.fajr}}
+          </ion-col>
+          <ion-col *ngIf="isLoading">
+              <ion-spinner icon="ios-small"></ion-spinner>
           </ion-col>
         </ion-row>
       </a><br/>
@@ -90,11 +94,17 @@
                     <ion-col>
                       {{prayTimeModel.isha}}
                     </ion-col>
-                    <ion-col class="bold-text">
+                    <ion-col class="bold-text" *ngIf="!isLoading">
                         {{iqama.isha}}
+                    </ion-col>
+                    <ion-col *ngIf="isLoading">
+                        <ion-spinner icon="ios-small"></ion-spinner>
                     </ion-col>
                   </ion-row>
                 </a>
       </ion-grid>
-</ion-content>
+<br><br>
+<button (click)="reload()" ion-button round ouline>refresh</button>
+
+    </ion-content>
 
